@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bio Lacoste_1win</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content-container {
+            padding: 10px; /* Уменьшено для мобильных */
+            border-radius: 10px; /* Уменьшено для мобильных */
+            background-color: #111;
+            margin-bottom: 10px; /* Уменьшено для мобильных */
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            width: 100%;
+            max-width: 90%; /* Уменьшено для мобильных */
+            border: 2px solid #333; /* Уменьшено для мобильных */
+            position: relative;
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px; /* Уменьшено для мобильных */
+            margin-bottom: 10px; /* Уменьшено для мобильных */
+            text-shadow: 0 0 5px white, 0 0 10px white; /* Уменьшено свечение текста */
+        }
+
+        .image-container {
+            text-align: center;
+            margin-bottom: 10px; /* Уменьшено для мобильных */
+        }
+
+        img {
+            border-radius: 10px; /* Уменьшено для мобильных */
+            max-width: 100%;
+            height: auto;
+        }
+
+        .header-line {
+            border-top: 1px solid white;
+            margin: 5px 0; /* Уменьшено для мобильных */
+        }
+
+        .content {
+            padding-top: 5px; /* Уменьшено для мобильных */
+            color: white;
+            text-align: center;
+            font-size: 12px; /* Уменьшено для мобильных */
+        }
+
+        .button-container {
+            position: absolute;
+            bottom: -40px; /* Уменьшено для мобильных */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .button {
+            display: inline-flex; 
+            justify-content: center; 
+            align-items: center; 
+            background-color: #111; 
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 16px; /* Уменьшено для мобильных */
+            font-size: 0.8rem; /* Уменьшено для мобильных */
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #222; 
+        }
+
+        .dud {
+            opacity: 0.5; 
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="content-container">
+        <div class="image-container">
+            <img src="https://i.pinimg.com/originals/49/6a/b7/496ab74403c2bc6d356a01bb7c661524.gif" alt="Image">
+        </div>
+        
+        <h1 id="name">Lacoste_1win</h1>
+
+        <div class="content">Information about me:</div>
+        <div class="header-line"></div>
+        <div class="content">Nickname: Lacoste</div>
+        <div class="content">Country: Russian Federation</div>
+
+        <div class="header-line"></div>
+        <div class="content">My friend:</div>
+        <div class="content">Nullexplorer (Creator)</div>
+        <div class="content">Flainn1</div>
+        <div class="content">Higgor228</div>
+
+        <div class="header-line"></div>
+        <div class="content">Active in these chats:</div>
+        <div class="content">Flainn chat</div>
+
+        <div class="button-container">
+            <a href="https://t.me/Lacoste_1win" class="button">Перейти в Telegram</a>
+        </div>
+    </div>
+
+    <script>
+      class TextScramble {
+          constructor(el) {
+              this.el = el;
+              this.chars = '!@#$%^&*()_-=+{}:"|<>?,./;';
+              this.update = this.update.bind(this);
+          }
+          setText(newText) {
+              const oldText = this.el.innerText; 
+              const length = Math.max(oldText.length, newText.length); 
+              const promise = new Promise((resolve) => this.resolve = resolve); 
+              this.queue = []; 
+              for (let i = 0; i < length; i++) {
+                  const from = oldText[i] || ''; 
+                  const to = newText[i] || ''; 
+                  const start = Math.floor(Math.random() * 40); 
+                  const end = start + Math.floor(Math.random() * 40); 
+                  this.queue.push({ from, to, start, end }); 
+              }
+              cancelAnimationFrame(this.frameRequest); 
+              this.frame = 0; 
+              this.update(); 
+              return promise; 
+          }
+          update() {
+              let output = '';
+              let complete = 0; 
+              for (let i = 0, n = this.queue.length; i < n; i++) {
+                  let { from, to, start, end, char } = this.queue[i];
+                  if (this.frame >= end) { 
+                      complete++;
+                      output += to; 
+                  } else if (this.frame >= start) { 
+                      if (!char || Math.random() < 0.28) { 
+                          char = this.randomChar(); 
+                          this.queue[i].char = char; 
+                      }
+                      output += `<span class="dud">${char}</span>`; 
+                  } else {
+                      output += from; 
+                  }
+              }
+              this.el.innerHTML = output; 
+              if (complete === this.queue.length) { 
+                  this.resolve(); 
+              } else {
+                  this.frameRequest = requestAnimationFrame(this.update); 
+                  this.frame++; 
+              }
+          }
+          randomChar() { 
+              return this.chars[Math.floor(Math.random() * this.chars.length)]; 
+          }
+      }
+
+      const el = document.getElementById('name');
+      const fx = new TextScramble(el);
+
+      function animateText() {
+          fx.setText('Lacoste_1win').then(() => {
+              setTimeout(() => animateText(), 1000); 
+          });
+      }
+
+      animateText(); 
+
+    </script>
+
+</body>
+
+</html>
